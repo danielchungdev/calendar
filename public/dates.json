@@ -1,0 +1,14 @@
+[
+    {
+        "date_id": 1,
+        "activity_id": 1,
+        "place": "Escape Room Panama",
+        "day": "2024/11/10"
+    },
+    {
+        "date_id": 1,
+        "activity_id": 2,
+        "place": "Parking en mi casa con los chicos",
+        "day": "2024/11/10"
+    }
+]
