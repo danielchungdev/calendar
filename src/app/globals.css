@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @plugin "tailwindcss-animate";
+@import "./tailwindcss-animate.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -123,9 +124,28 @@
   body {
     @apply bg-background text-foreground;
   }
-  .AccordionContent { overflow: hidden; } 
-  .AccordionContent[data-state='open'] { animation: slideDown 300ms ease-out; } 
-  .AccordionContent[data-state='closed'] { animation: slideUp 300ms ease-out; }
+}
 
+.sticky-header {
+  position: sticky;
+  top: 0;
+  background-color: white; /* Adjust as needed */
+  z-index: 1000; /* Adjust as needed */
+  padding: 10px 0; /* Adjust as needed */
+}
 
+.sticky-year {
+  position: sticky;
+  top: 50px; /* Adjust this value based on the height of the "Our Story" header */
+  background-color: white; /* Adjust as needed */
+  z-index: 999; /* Adjust as needed */
+  padding: 5px 0; /* Adjust as needed */
+}
+
+.sticky-month {
+  position: sticky;
+  background-color: white; /* Adjust as needed */
+  top: 100px;
+  z-index: 998; /* Adjust as needed */
+  padding: 5px 0; /* Adjust as needed */
 }

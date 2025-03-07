@@ -1,17 +1,22 @@
 import { Header } from "../typography/Header";
 import { SubHeader } from "../typography/SubHeader";
+import { TypographyH4 } from "../typography/TypographyH4";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
+import { monthNumberToString } from "@/functions/monthNumberToString";
+import {stringDateToFormalDate} from "@/functions/stringDateToFormalDate";
 
 interface Activity {
   date_id: number;
   activity_id: number;
-  place: string;
+  description: string;
   day: string;
 }
 
+type DateGroupedActivities = Activity[][];
+
 type MonthActivities = {
   month: string;
-  activities: Activity[];
+  dates: DateGroupedActivities;
 };
 
 type YearActivities = {
@@ -25,28 +30,30 @@ type DatesDisplayProps = {
 
 const DatesDisplay = ({ datesArray }: DatesDisplayProps) => {
   return (
-    <div>
+    <div className="mb-20">
       {datesArray.map(({ year, months }) => (
         <div key={year}>
-          <Header text={`${year}`} muted={true}/>
-          {months.map(({ month, activities }) => (
-            <div key={month} className="mx-5">
-              <SubHeader text={`${month}`} />
-
-              {/* <ul>
-                  {activities.map((activity) => (
-                    <li key={activity.activity_id}>
-                      {activity.place} - {activity.day.split('/')[1]}
-                    </li>
-                  ))}
-                </ul> */}
-              <Accordion type="single" collapsible>
-                <AccordionItem value="item-1">
-                  <AccordionTrigger>Is it accessible?</AccordionTrigger>
-                  <AccordionContent className="AccordionContent">
-                    Yes. It adheres to the WAI-ARIA design pattern.
-                  </AccordionContent>
-                </AccordionItem>
+          <Header text={`${year}`} muted={true} className="sticky-year"/>
+          {months.map(({ month, dates }) => (
+            <div key={month} className="mx-2">
+              <SubHeader text={`${monthNumberToString(parseInt(month))}`} className="sticky-month"/>
+              <Accordion type="single" collapsible className="mx-2">
+                {dates.map((activity, index) => (
+                  <AccordionItem value={`item-${index}`} key={`date-${index}`}>
+                    <AccordionTrigger>
+                      <div className="flex justify-between">
+                        <TypographyH4 text={stringDateToFormalDate(activity[0].day)} />
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      {activity.map((item, index) => (
+                        <div key={`activity-${index}`}>
+                          <p>{item.description}</p>
+                        </div>
+                      ))} 
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
               </Accordion>
 
             </div>
