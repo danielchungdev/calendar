@@ -32,7 +32,7 @@ export default async function Home() {
     {
       "date_id": 2,
       "activity_id": 3,
-      "description": "Fiesta de Navidad",
+      "description": "Fiesta de Navidad + cumple de Kelly",
       "day": "2024/12/21"
     },
     {
@@ -176,7 +176,13 @@ export default async function Home() {
     {
       "date_id": 17,
       "activity_id": 20,
-      "description": "Go karts, captain America movie, Xiao ya, and then we talked",
+      "description": "Chorrera roadtrip, quick fam meetup",
+      "day": "2025/2/15"
+    },
+    {
+      "date_id": 17,
+      "activity_id": 20,
+      "description": "Go karts",
       "day": "2025/2/15"
     },
     {
@@ -311,6 +317,30 @@ export default async function Home() {
       "description": "Movies at home ;)",
       "day": "2025/3/6"
     },
+    {
+      "date_id": 27,
+      "activity_id": 41,
+      "description": "Me trajo McFlurry a mi y a los chicos y le mostre los mad guitar skillz xd",
+      "day": "2025/3/7"
+    },
+    {
+      "date_id": 28,
+      "activity_id": 43,
+      "description": "Pasta date despues de la U",
+      "day": "2025/3/11"
+    },
+    {
+      "date_id": 28,
+      "activity_id": 44,
+      "description": "Te quiero mucho muchisimo",
+      "day": "2025/3/11"
+    },
+    {
+      "date_id": 28,
+      "activity_id": 44,
+      "description": "Quieres ser mi novia? ",
+      "day": "2025/3/11"
+    }
   ]
 
   const groupedData = mockData.reduce<Record<string, Record<string, Record<number, Activity[][]>>>>(
