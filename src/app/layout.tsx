@@ -1,6 +1,7 @@
 "use client";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import type { Metadata } from "next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,6 +14,11 @@ const geistMono = Geist_Mono({
 });
 
 // Initialize QueryClient outside of the component to avoid re-creating it on every render
+
+export const metadata: Metadata = {
+  title: "Lilo + Chung Timeline",
+  description: "it's a surprise (:",
+};
 
 export default function RootLayout({
   children,
