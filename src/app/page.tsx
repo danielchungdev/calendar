@@ -375,7 +375,7 @@ export default async function Home() {
 
   return (
     <div className="mx-5">
-      <Header text="Our Story" className="sticky-header mt-10"/>
+      <Header text="Our Timeline" className="sticky-header mt-10"/>
       <DatesDisplay datesArray={groupedArray} />
     </div>
   )
